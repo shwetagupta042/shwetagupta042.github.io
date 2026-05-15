@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shweta Gupta | Senior GenAI & ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #16161f;
+      --border: rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.14);
+      --text: #f0eee8;
+      --muted: #8a8890;
+      --accent: #7c6dfa;
+      --accent2: #a78bfa;
+      --teal: #2dd4bf;
+      --amber: #f59e0b;
+      --coral: #f87171;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 5vw;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 5vw 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -20%; right: -10%;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,109,250,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute; bottom: -20%; left: -10%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,212,191,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; color: var(--accent2);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      max-width: 14ch;
+    }
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent2), var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.125rem; color: var(--muted);
+      max-width: 54ch; margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; padding: 0.3rem 0.8rem;
+      border: 1px solid var(--border2);
+      border-radius: 999px; color: var(--muted);
+      background: var(--bg2);
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: #fff; border: none; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-ghost {
+      padding: 0.75rem 2rem;
+      background: transparent;
+      color: var(--text); border: 1px solid var(--border2); border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 500;
+      text-decoration: none; cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--accent2); transform: translateY(-1px); }
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 5rem;
+      border-top: 1px solid var(--border); padding-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem; color: var(--text);
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 5vw; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--accent2);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+    .divider {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    #about .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-weight: 300; font-size: 1.05rem; }
+    .cert-list { margin-top: 2rem; }
+    .cert-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--muted);
+    }
+    .cert-icon { color: var(--teal); font-size: 1rem; margin-top: 0.1rem; }
+    .about-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .info-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+    }
+    .info-card-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .info-card-value { font-size: 0.95rem; color: var(--text); font-weight: 500; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg2); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .skill-group {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem;
+    }
+    .skill-group-title {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent2);
+      margin-bottom: 1rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      font-size: 0.8rem; padding: 0.25rem 0.7rem;
+      background: var(--bg); border: 1px solid var(--border2);
+      border-radius: 6px; color: var(--muted);
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(180deg, var(--accent), var(--teal), transparent);
+    }
+    .timeline-item { padding-left: 2rem; margin-bottom: 3.5rem; position: relative; }
+    .timeline-dot {
+      position: absolute; left: -5px; top: 0.4rem;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .exp-company {
+      font-size: 0.75rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem;
+    }
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem; margin-bottom: 0.3rem; color: var(--text);
+    }
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--teal); margin-bottom: 1.25rem;
+    }
+    .project-block {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-block-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .project-block-tools {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem;
+    }
+    .tool-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; padding: 0.15rem 0.6rem;
+      background: rgba(124,109,250,0.12); border: 1px solid rgba(124,109,250,0.25);
+      border-radius: 999px; color: var(--accent2);
+    }
+    .project-block ul { padding-left: 1.1rem; }
+    .project-block li { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.4rem; }
+    .highlight { color: var(--amber); font-weight: 600; }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg2); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .project-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(124,109,250,0.15); border: 1px solid rgba(124,109,250,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 1.25rem;
+    }
+    .project-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .project-card p { font-size: 0.875rem; color: var(--muted); margin-bottom: 1.25rem; }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    .contact-card {
+      max-width: 680px; margin: 0 auto;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 3.5rem;
+    }
+    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.5rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.65rem 1.4rem;
+      background: var(--bg3); border: 1px solid var(--border2);
+      border-radius: 8px; color: var(--text);
+      text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .contact-link:hover { border-color: var(--accent2); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 2.5rem 5vw;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.7s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .delay-3 { animation-delay: 0.35s; opacity: 0; }
+    .delay-4 { animation-delay: 0.5s; opacity: 0; }
+    .delay-5 { animation-delay: 0.65s; opacity: 0; }
+
+    @media (max-width: 768px) {
+      #about .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      nav { padding: 1rem 4vw; }
+      .nav-links { gap: 1.2rem; }
+      .hero-stats { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">SG.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <p class="hero-label fade-up delay-1">Senior GenAI & ML Engineer · Bengaluru, India</p>
+    <h1 class="fade-up delay-2">Shweta <em>Gupta</em></h1>
+    <p class="hero-sub fade-up delay-3">
+      Building intelligent systems at the intersection of LLMs, RAG architectures,
+      and agentic AI — 8 years turning complex data into scalable, production-grade solutions.
+    </p>
+    <div class="hero-tags fade-up delay-4">
+      <span class="tag">LLM Systems</span>
+      <span class="tag">RAG Pipelines</span>
+      <span class="tag">Agentic AI</span>
+      <span class="tag">MLOps</span>
+      <span class="tag">GCP · AWS · Azure</span>
+      <span class="tag">LangChain · LangGraph</span>
+    </div>
+    <div class="hero-ctas fade-up delay-5">
+      <a href="#projects" class="btn-primary">View My Projects</a>
+      <a href="mailto:Shweta.gupta042@gmail.com" class="btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-stats fade-up delay-5">
+      <div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">2.5+</div>
+        <div class="stat-label">Years in GenAI & LLMs</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About Me</p>
+    <h2>Data professional.<br>GenAI innovator.</h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Senior GenAI & ML Engineer with 8 years of comprehensive experience in Data Science
+          and Engineering. Over the last 2.5+ years, I've been driving innovation across Generative AI,
+          LLMs, RAG architectures, agentic workflows, and MLOps at Verizon.
+        </p>
+        <p>
+          My technical foundation spans cloud-based data migration, extraction, and transformation,
+          alongside advanced model training using Python, PyTorch, and the broader ML ecosystem. I'm
+          passionate about collaborating directly with enterprise clients to translate complex requirements
+          into scalable, cloud-native solutions.
+        </p>
+        <p>
+          I hold an M.Tech in Data Science & Engineering from BITS Pilani and a B.Tech in Information
+          Technology from West Bengal University of Technology.
+        </p>
+        <div class="cert-list">
+          <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.75rem;">Certifications</p>
+          <div class="cert-item"><span class="cert-icon">◆</span> Google Cloud Platform — Professional Data Engineer</div>
+          <div class="cert-item"><span class="cert-icon">◆</span> Azure Cloud — Azure Data Fundamentals (DP-900)</div>
+          <div class="cert-item"><span class="cert-icon">◆</span> Oracle — OCI AI Professional Certification</div>
+        </div>
+      </div>
+      <div class="about-info">
+        <div class="info-card">
+          <div class="info-card-label">Current Role</div>
+          <div class="info-card-value">Staff AI/ML Engineer — GenAI & Agentic Systems</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Company</div>
+          <div class="info-card-value">Verizon (Nov 2022 – Present)</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Education</div>
+          <div class="info-card-value">M.Tech Data Science — BITS Pilani<br>
+          <span style="font-size:0.85rem;color:var(--muted);">B.Tech IT — WBUT</span></div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Location</div>
+          <div class="info-card-value">Bengaluru, India</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Contact</div>
+          <div class="info-card-value" style="font-size:0.9rem;">
+            <a href="mailto:Shweta.gupta042@gmail.com" style="color:var(--accent2);text-decoration:none;">Shweta.gupta042@gmail.com</a><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">Technical Skills</p>
+    <h2>My tech stack</h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Generative AI & LLMs</div>
+        <div class="skill-tags">
+          <span class="skill-tag">GPT-4</span>
+          <span class="skill-tag">Gemini</span>
+          <span class="skill-tag">Claude</span>
+          <span class="skill-tag">LLaMA</span>
+          <span class="skill-tag">Prompt Engineering</span>
+          <span class="skill-tag">PEFT Fine-tuning</span>
+          <span class="skill-tag">MCP Server</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Agentic & RAG Systems</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">LangGraph</span>
+          <span class="skill-tag">AutoGen</span>
+          <span class="skill-tag">LlamaIndex</span>
+          <span class="skill-tag">Multi-agent Orchestration</span>
+          <span class="skill-tag">RAG Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Vector Databases</div>
+        <div class="skill-tags">
+          <span class="skill-tag">FAISS</span>
+          <span class="skill-tag">Qdrant</span>
+          <span class="skill-tag">LanceDB</span>
+          <span class="skill-tag">Pinecone</span>
+          <span class="skill-tag">Semantic Search</span>
+          <span class="skill-tag">Embedding Optimization</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">MLOps & Deployment</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">KubeFlow</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">vLLM</span>
+          <span class="skill-tag">Triton Inference Server</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">GCP Vertex AI</span>
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">Dataflow</span>
+          <span class="skill-tag">Airflow</span>
+          <span class="skill-tag">AWS Bedrock</span>
+          <span class="skill-tag">Azure OpenAI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">ML & Deep Learning</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">XGBoost</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Transformers</span>
+          <span class="skill-tag">Forecasting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data Engineering</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PySpark</span>
+          <span class="skill-tag">Databricks</span>
+          <span class="skill-tag">Kafka</span>
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">Neo4j</span>
+          <span class="skill-tag">Spark</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">PySpark</span>
+          <span class="skill-tag">UNIX Shell</span>
+          <span class="skill-tag">GitHub / GitLab</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Personal Projects</p>
+    <h2>Things I've built for fun</h2>
+    <div class="divider"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-card-icon">🕷️</div>
+        <h3>NL-to-SQL AI Agent — Spider Benchmark</h3>
+        <p>Plain English questions, real database answers — SQL generated, executed, and self-corrected under the hood across 200+ databases. Implements a 7-stage pipeline: intent guardrail → schema RAG → DB router → context filter → SQL generator → self-correction loop → structured response. RAG-first routing with GPT-4o-mini fallback; self-heals failed queries up to 3 attempts using SQLite error feedback.</p>
+        <div class="hero-tags">
+          <span class="tag">GPT-4o-mini</span><span class="tag">ChromaDB</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">FastAPI</span><span class="tag">Gradio</span><span class="tag">SQLite</span><span class="tag">OpenAI Embeddings</span>
+        </div>
+        <div style="margin-top:1.25rem;">
+          <a href="https://github.com/shwetagupta042/nl-to-sql-agent" target="_blank" style="font-size:0.8rem;color:var(--accent2);text-decoration:none;border:1px solid rgba(167,139,250,0.3);padding:0.3rem 0.9rem;border-radius:6px;">↗ View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-icon">🎬</div>
+        <h3>Multimodal Compliance Auditor with LangGraph</h3>
+        <p>An end-to-end AI pipeline that audits video content against regulatory standards. Ingests video via Azure Video Indexer, retrieves compliance rules through RAG, and uses GPT-4o to detect violations — outputting structured JSON reports with full observability via LangSmith tracing and Azure Application Insights telemetry.</p>
+        <div class="hero-tags">
+          <span class="tag">LangGraph</span><span class="tag">LangSmith</span><span class="tag">Azure OpenAI</span><span class="tag">GPT-4o</span><span class="tag">RAG</span><span class="tag">Azure Video Indexer</span><span class="tag">Azure AI Search</span><span class="tag">Azure Application Insights</span><span class="tag">FastAPI</span><span class="tag">Docker</span>
+        </div>
+        <div style="margin-top:1.25rem;">
+          <a href="https://github.com/shwetagupta042/multimodal-compliance-auditor-langgraph" target="_blank" style="font-size:0.8rem;color:var(--accent2);text-decoration:none;border:1px solid rgba(167,139,250,0.3);padding:0.3rem 0.9rem;border-radius:6px;">↗ View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-icon">🕸️</div>
+        <h3>Graph Analytics — Bangalore Next-Gen AIdeathon</h3>
+        <p>Designed a Neo4j graph-based data representation to surface hidden relationships across enterprise systems (Customer, Address, Assets, Area), enabling centralized multi-hop analytics.</p>
+        <div class="hero-tags">
+          <span class="tag">Neo4j</span><span class="tag">Graph DB</span><span class="tag">Analytics</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-icon">⚙️</div>
+        <h3>Predictive Maintenance — Multi-modal ML</h3>
+        <p>Built a predictive maintenance system using CNN-based image analysis and time-series features to forecast industrial machine part failures. Served final model via FastAPI and Triton Inference Server.</p>
+        <div class="hero-tags">
+          <span class="tag">CNN</span><span class="tag">TensorFlow</span><span class="tag">FastAPI</span><span class="tag">K-Means</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-icon">🔭</div>
+        <h3>Computer Vision — BLIP + YOLO on Triton</h3>
+        <p>Deployed BLIP (image-text retrieval & captioning) on Triton Inference Server inside Docker using GPU-optimized config. Implemented Triton ensemble combining YOLO + BLIP for multi-modal inference.</p>
+        <div class="hero-tags">
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Triton</span><span class="tag">Docker</span><span class="tag">GPU</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Get in Touch</p>
+    <h2>Let's connect</h2>
+    <div class="divider" style="margin:0 auto 3rem;"></div>
+    <div class="contact-card">
+      <p style="color:var(--muted);font-size:1.05rem;max-width:46ch;margin:0 auto;">
+        Open to exciting opportunities in GenAI, LLM Systems, and Agentic AI.
+        Feel free to reach out for collaborations, roles, or just a conversation about AI.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:Shweta.gupta042@gmail.com" class="contact-link">
+          ✉ Shweta.gupta042@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/shweta-gupta042" target="_blank" class="contact-link">
+          ↗ LinkedIn
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Shweta Gupta · Built with HTML, CSS & ♥</p>
+  </footer>
+
+</body>
+</html>
